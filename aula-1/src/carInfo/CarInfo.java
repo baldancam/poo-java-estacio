@@ -52,5 +52,6 @@ public class CarInfo {
         System.out.println("Quilometragem: " + km);
         System.out.println("Condição: " + condicao);
        
+        leitor.close();
     }
 }

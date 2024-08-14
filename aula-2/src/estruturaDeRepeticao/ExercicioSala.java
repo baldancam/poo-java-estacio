@@ -2,7 +2,7 @@ package estruturaDeRepeticao;
 
 import java.util.Scanner;
 
-public class Exercicio {
+public class ExercicioSala {
 
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
@@ -28,6 +28,8 @@ public class Exercicio {
         double media = (double) soma / usuarios;
 
         System.out.println("A média das notas para o filme '" + nomeFilme + "' é: " + media);
+        
+        leitor.close();
         
     }
 }
