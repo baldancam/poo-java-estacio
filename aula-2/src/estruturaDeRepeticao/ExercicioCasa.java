@@ -60,7 +60,7 @@ public class ExercicioCasa {
 			// Pergunta ao usuário se deseja reiniciar com novos valores
 			System.out.println("Deseja reiniciar com novos valores? (sim/não)");
 			repetir = leitor.next();
-
+ 
 		} while (repetir.equalsIgnoreCase("sim"));
 
 		System.out.println("Até a próxima :D");
