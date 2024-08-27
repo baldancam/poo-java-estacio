@@ -4,49 +4,84 @@ public class Principal {
 
 	public static void main(String[] args) {
 
-		ContaBancaria contaAna = new ContaBancaria();
+		Cliente joao = new Cliente();
+		joao.nome = "João Cardoso Filho";
+		joao.profissao = "Motorista";
+		joao.cpf = "004.555.000-89";
 
-		contaAna.saldo = 1500.5;
-		contaAna.numero = "123-3";
-		contaAna.agencia = "00111222";
+		Endereco enderecoJoao = new Endereco();
 
-		System.out.println("Saldo da ana = " + contaAna.saldo);
-		System.out.println("Agência da ana = " + contaAna.agencia);
-		System.out.println("Número da conta = " + contaAna.numero);
-
-		contaAna.depositar(150);
-
-		System.out.println("Saldo da ana = " + contaAna.saldo);
-
-		boolean sacou = contaAna.sacar(350);
-		if (sacou == true) {
-			System.out.println("\nSaque realizado com sucesso!");
-			System.out.println("Saldo da ana = " + contaAna.saldo);
-		} else {
-			System.out.println("\nSaque não realizado com sucesso!");
-		}
+		enderecoJoao.rua = "Rua Domingos Costa";
+		enderecoJoao.numero = 27;
+		enderecoJoao.cidade = "São José";
+		enderecoJoao.cep = "88190-000";
+		enderecoJoao.estado = "SC";
 
 		ContaBancaria contaJoao = new ContaBancaria();
+		joao.conta = contaJoao;
+		joao.endereco = enderecoJoao;
 
-		contaJoao.saldo = 1700.5;
-		contaJoao.numero = "321-6";
-		contaJoao.agencia = "00111222";
+		Cliente ana = new Cliente();
+		ana.nome = "João Cardoso Filho";
+		ana.profissao = "Motorista";
+		ana.cpf = "004.555.000-89";
 
-		System.out.println("\n\nSaldo da Joao = " + contaJoao.saldo);
-		System.out.println("Agência da Joao = " + contaJoao.agencia);
-		System.out.println("Número da Joao = " + contaJoao.numero);
+		Endereco enderecoAna = new Endereco();
 
-		contaJoao.depositar(750);
+		enderecoAna.rua = "Rua Domingos Costa";
+		enderecoAna.numero = 27;
+		enderecoAna.cidade = "São José";
+		enderecoAna.cep = "88190-000";
+		enderecoAna.estado = "SC";
 
-		System.out.println("Saldo da Joao = " + contaJoao.saldo);
+		ContaBancaria contaAna = new ContaBancaria();
+		ana.conta = contaAna;
+		ana.endereco = enderecoAna;
 
-		sacou = contaJoao.sacar(2500);
+		contaAna.setNumero("12458-8");
+		contaAna.setAgencia("4451-4");
+
+		System.out.println("Saldo da ana = " + ana.conta.getSaldo());
+		System.out.println("Agência da ana = " + ana.conta.getAgencia());
+		System.out.println("Número da conta = " + ana.conta.getNumero());
+
+		contaAna.depositar(5550);
+
+		System.out.println("Saldo da ana = " + ana.conta.getSaldo());
+
+		boolean sacou = ana.conta.sacar(350);
 		if (sacou == true) {
 			System.out.println("\nSaque realizado com sucesso!");
-			System.out.println("Saldo da ana = " + contaJoao.saldo);
+			System.out.println("Saldo da ana = " + ana.conta.getSaldo());
 		} else {
 			System.out.println("\nSaque não realizado com sucesso!");
 		}
+
+		contaJoao.setNumero("99458-8");
+		contaJoao.setAgencia("9951-4");
+
+		contaJoao.depositar(10750);
+
+		System.out.println("\nSaldo da Joao = " + joao.conta.getSaldo());
+		System.out.println("Agência da Joao= " + joao.conta.getAgencia());
+		System.out.println("Número da conta = " + joao.conta.getNumero());
+
+		sacou = joao.conta.sacar(2500);
+		if (sacou == true) {
+			System.out.println("\nSaque realizado com sucesso!");
+			System.out.println("Saldo da ana = " + joao.conta.getSaldo());
+		} else {
+			System.out.println("\nSaque não realizado!");
+		}
+
+		System.out.println("Saldo conta Ana: " + ana.conta.getSaldo());
+		System.out.println("Saldo conta João: " + joao.conta.getSaldo());
+
+		contaJoao.transferir(150, contaAna);
+		System.out.println("\nSaldo conta João: " + joao.conta.getSaldo());
+		System.out.println("Saldo atual conta Ana: " + ana.conta.getSaldo());
+
+		System.out.println("\n" + joao.endereco);
 
 	}
 
