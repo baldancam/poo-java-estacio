@@ -44,23 +44,63 @@ public class Cliente {
 	}
 
 	public void setCpf(String novoCpf) {
-		if (!cpfDefinido) {
-			cpf = novoCpf;
-			cpfDefinido = true;
+
+		if (novoCpf.length() == 14 && novoCpf.charAt(3) == '.' && novoCpf.charAt(7) == '.'
+				&& novoCpf.charAt(11) == '-') {
+			if (!cpfDefinido) {
+				cpf = novoCpf;
+				cpfDefinido = true;
+			}
 		} else {
 			System.out.println("CPF já foi inserido e não pode ser alterado.");
 		}
 	}
 
 	public void setProfissao(String novaProfissao) {
-		profissao = novaProfissao;
+
+		if (!novaProfissao.isBlank()) {
+			profissao = novaProfissao;
+		}
+
 	}
 
 	public void setEndereco(Endereco novoEndereco) {
-		endereco = novoEndereco;
+
+		if (novoEndereco != null) {
+			endereco = novoEndereco;
+		}
+
 	}
 
 	public void setConta(ContaBancaria novaConta) {
-		conta = novaConta;
+
+		if (novaConta != null) {
+			conta = novaConta;
+		}
+
 	}
+	
+	@Override
+	public String toString() {
+
+		String dados = """
+				*** Dados Pessoais ***
+				nome: %s
+				cpf: %s
+				profissão: %s
+				*** Dados de endereço ***
+				%s
+				*** Dados conta bancária***
+				%s
+				
+				""";
+		
+		String dadosFormatados = String.format(dados, nome, cpf, profissao, endereco.toString(), conta.toString());
+		
+		return dadosFormatados;
+	
+	}
+	
+	
+	
 }

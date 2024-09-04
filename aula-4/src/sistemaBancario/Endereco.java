@@ -14,7 +14,12 @@ public class Endereco {
 	}
 
 	public void setRua(String ruaEndereco) {
-		rua = ruaEndereco;
+
+		if (!ruaEndereco.isBlank()) {
+
+			rua = ruaEndereco;
+		}
+
 	}
 
 	public int getNumero() {
@@ -22,7 +27,12 @@ public class Endereco {
 	}
 
 	public void setNumero(int numeroEndereco) {
-		numero = numeroEndereco;
+
+		if (numeroEndereco > 0) {
+
+			numero = numeroEndereco;
+		}
+
 	}
 
 	public String getCep() {
@@ -30,7 +40,12 @@ public class Endereco {
 	}
 
 	public void setCep(String cepEndereco) {
-		cep = cepEndereco;
+
+		if (cepEndereco.length() == 9 && cepEndereco.charAt(5) == '-') {
+
+			cep = cepEndereco;
+		}
+
 	}
 
 	public String getCidade() {
@@ -38,7 +53,12 @@ public class Endereco {
 	}
 
 	public void setCidade(String cidadeEndereco) {
-		cidade = cidadeEndereco;
+
+		if (!cidadeEndereco.isBlank()) {
+
+			cidade = cidadeEndereco;
+		}
+
 	}
 
 	public String getEstado() {
@@ -46,7 +66,11 @@ public class Endereco {
 	}
 
 	public void setEstado(String estadoEndereco) {
-		estado = estadoEndereco;
+
+		if (!estadoEndereco.isBlank()) {
+			estado = estadoEndereco;
+		}
+
 	}
 
 	@Override

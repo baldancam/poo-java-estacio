@@ -92,6 +92,13 @@ public class Principal {
 		System.out.println(ana.getEndereco());
 
 		// -----------------------------
+		
+		System.out.println(joao.getCpf());
+		
+		
+		// -----------------------------
+		
+		
 
 	}
 }
