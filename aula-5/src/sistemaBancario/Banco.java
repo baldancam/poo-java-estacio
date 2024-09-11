@@ -11,14 +11,8 @@ public class Banco {
 	public Banco(String nome, Endereco endereco, List<Cliente> clientes) {
 
 		this.nome = nome;
-		this.endereco = endereco;
+		this.setEndereco(endereco);
 		this.clientes = clientes;
-
-	}
-
-	private void addCliente(Cliente cliente) {
-
-		this.clientes.add(cliente);
 
 	}
 
@@ -35,6 +29,14 @@ public class Banco {
 
 		return dados;
 
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 }
