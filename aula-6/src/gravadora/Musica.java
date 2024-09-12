@@ -2,38 +2,37 @@ package gravadora;
 
 public class Musica {
 
-	private String nome;
+	private String nomeMusica;
 	private String duracao;
-	private Artista artista; // Alterado o nome da variável para uma melhor semântica
+	private Artista artista;
 
-	// Construtor que aceita um objeto Artista em vez de nome e gênero
-	public Musica(String nome, String duracao, Artista artista) {
-		setNome(nome);
+	
+	public Musica(String nomeMusica, String duracao, Artista artista) {
+		setNomeMusica(nomeMusica);
 		setDuracao(duracao);
 		setArtista(artista);
 	}
 
-	// Getter e Setter para o nome da música
-	public String getNome() {
-		return nome;
+	
+	public String getNomeMusica() {
+		return nomeMusica;
 	}
 
-	public void setNome(String nome) {
-		if (nome != null && !nome.isBlank()) {
-			this.nome = nome;
+	public void setNomeMusica(String nomeMusica) {
+		if (nomeMusica != null && !nomeMusica.isBlank()) {
+			this.nomeMusica = nomeMusica;
 		} else {
 			throw new IllegalArgumentException("O nome da música não pode ser vazio ou nulo.");
 		}
 	}
 
-	// Getter e Setter para a duração da música
 	public String getDuracao() {
 		return duracao;
 	}
 
 	public void setDuracao(String duracao) {
 		if (duracao != null && !duracao.isBlank()) {
-			// Validação básica para o formato de duração "mm:ss"
+			// Validação para o formato de duração "mm:ss"
 			if (duracao.matches("\\d{2}:\\d{2}")) {
 				this.duracao = duracao;
 			} else {
@@ -44,7 +43,7 @@ public class Musica {
 		}
 	}
 
-	// Getter e Setter para o objeto Artista
+	
 	public Artista getArtista() {
 		return artista;
 	}
@@ -68,7 +67,7 @@ public class Musica {
 
 		String dadosArtista = artista.toString();
 
-		String dadosFormatadosMusica = String.format(dadosMusica, nome, duracao);
+		String dadosFormatadosMusica = String.format(dadosMusica, nomeMusica, duracao);
 
 		return dadosFormatadosMusica + dadosArtista;
 	}
